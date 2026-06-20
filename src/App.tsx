@@ -1,27 +1,18 @@
-import CountBtn from "~/components/count-btn";
-import ReactSVG from "~/assets/react.svg";
-import { Badge } from "~/components/ui/badge";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Page1 from "./pages/page1";
+import Page2 from "./pages/page2";
+import Page3 from "./pages/page3";
+import Home from "./pages/home";
+
+const router = createBrowserRouter([
+  { path: "/page1", element: <Page1 /> },
+  { path: "/page2", element: <Page2 /> },
+  { path: "/page3", element: <Page3 /> },
+  { path: "/", element: <Home /> },
+])
 
 function App() {
-  return (
-    <main className="flex flex-col items-center justify-center h-screen">
-      <div className="flex flex-col items-center gap-y-4">
-        <div className="inline-flex items-center gap-x-4">
-          <img src={ReactSVG} alt="React Logo" className="w-32" />
-          <span className="text-6xl">+</span>
-          <img src={"/vite.svg"} alt="Vite Logo" className="w-32" />
-        </div>
-        <a
-          href="https://ui.shadcn.com"
-          rel="noopener noreferrer nofollow"
-          target="_blank"
-        >
-          <Badge variant="outline">shadcn/ui</Badge>
-        </a>
-        <CountBtn />
-      </div>
-    </main>
-  );
+  return <RouterProvider router = { router } />;
 }
 
 export default App;
